@@ -1,17 +1,38 @@
 package com.example.familyteam.augmentedenglishapp;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import com.example.familyteam.augmentedenglishapp.adapters.UsuarioAdapter;
+import com.example.familyteam.augmentedenglishapp.models.Usuario;
+import com.example.familyteam.augmentedenglishapp.net.UsuarioCon;
+
+import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+
+    EditText txtNombre;
+    EditText txtCorreo;
+    EditText txtContrasena;
+    Button btnRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        txtNombre = (EditText) findViewById(R.id.nombre);
+        txtCorreo = (EditText) findViewById(R.id.correo);
+        txtContrasena = (EditText) findViewById(R.id.contrasena);
+
+        btnRegistrar.setOnClickListener(this);
     }
 
     @Override
@@ -34,5 +55,10 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
