@@ -1,5 +1,6 @@
 package com.example.familyteam.augmentedenglishapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,16 +10,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.familyteam.augmentedenglishapp.adapters.UsuarioAdapter;
 import com.example.familyteam.augmentedenglishapp.models.Usuario;
 import com.example.familyteam.augmentedenglishapp.net.UsuarioCon;
+import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
 
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener, UsuarioCon.UsuarioConI {
 
+    Usuario usu;
     EditText txtNombre;
     EditText txtCorreo;
     EditText txtContrasena;
@@ -32,9 +36,23 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         txtCorreo = (EditText) findViewById(R.id.correo);
         txtContrasena = (EditText) findViewById(R.id.contrasena);
 
+        usu = new Usuario();
+        usu.setNombre(txtNombre.toString());
+        usu.setCorreo(txtNombre.toString());
+        usu.setContrasena(txtContrasena.toString());
+
         btnRegistrar.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        //UsuarioCon u = new UsuarioCon(this, this);
+        //u.insert(usu);
+        Toast toast = Toast.makeText(this, "Mensaje 1", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    //region OptionMenu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -56,9 +74,22 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
         return super.onOptionsItemSelected(item);
     }
+//endregion
 
+    //region Azure Callback
     @Override
-    public void onClick(View v) {
+    public void onCompleted(Usuario entity, Exception exception, ServiceFilterResponse response) {
 
     }
+
+    @Override
+    public void onDeleteCompleted(Exception exception, ServiceFilterResponse response) {
+
+    }
+
+    @Override
+    public void onReadCompleted(List<Usuario> result, int count, Exception exception, ServiceFilterResponse response) {
+
+    }
+    //endregion
 }
