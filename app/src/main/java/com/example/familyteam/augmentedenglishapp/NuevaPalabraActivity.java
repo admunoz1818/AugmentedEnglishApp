@@ -19,11 +19,6 @@ import java.util.List;
 
 public class NuevaPalabraActivity extends ActionBarActivity implements PalabraCon.PalabraConI, View.OnClickListener {
 
-
-    ListView list;
-    List<Palabra> data;
-    PalabraAdapter adapter;
-
     Palabra p;
     PalabraCon pCon;
 

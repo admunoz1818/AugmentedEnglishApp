@@ -20,9 +20,11 @@ import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity implements UsuarioCon.UsuarioConI {
+public class MainActivity extends ActionBarActivity implements UsuarioCon.UsuarioConI, View.OnClickListener {
 
     Usuario usu;
+    UsuarioCon usuCon;
+
     EditText txtNombre;
     EditText txtCorreo;
     EditText txtContrasena;
@@ -35,11 +37,10 @@ public class MainActivity extends ActionBarActivity implements UsuarioCon.Usuari
         txtNombre = (EditText) findViewById(R.id.nombre);
         txtCorreo = (EditText) findViewById(R.id.correo);
         txtContrasena = (EditText) findViewById(R.id.contrasena);
+        btnRegistrar = (Button) findViewById(R.id.btnRegistro);
 
-        usu = new Usuario();
-        usu.setNombre(txtNombre.toString());
-        usu.setCorreo(txtNombre.toString());
-        usu.setContrasena(txtContrasena.toString());
+        usuCon = new UsuarioCon(this,this);
+        btnRegistrar.setOnClickListener(this);
 
     }
 
@@ -80,6 +81,21 @@ public class MainActivity extends ActionBarActivity implements UsuarioCon.Usuari
 
     @Override
     public void onReadCompleted(List<Usuario> result, int count, Exception exception, ServiceFilterResponse response) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        usu = new Usuario();
+        usu.setNombre(txtNombre.getText().toString());
+        usu.setCorreo(txtCorreo.getText().toString());
+        usu.setContrasena(txtContrasena.getText().toString());
+
+        usuCon.insert(usu);
+
+        txtNombre.getText().clear();
+        txtCorreo.getText().clear();
+        txtContrasena.getText().clear();
 
     }
     //endregion
