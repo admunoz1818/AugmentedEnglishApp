@@ -10,13 +10,21 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".PalabrasActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="activity_palabras" >
+        </activity>
+        <activity
+            android:name=".NuevaPalabraActivity"
+            android:label="activity_nueva_palabra" >
         </activity>
     </application>
 

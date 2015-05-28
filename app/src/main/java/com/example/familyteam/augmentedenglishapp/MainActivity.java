@@ -20,7 +20,7 @@ import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
 import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity implements View.OnClickListener, UsuarioCon.UsuarioConI {
+public class MainActivity extends ActionBarActivity implements UsuarioCon.UsuarioConI {
 
     Usuario usu;
     EditText txtNombre;
@@ -41,15 +41,6 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         usu.setCorreo(txtNombre.toString());
         usu.setContrasena(txtContrasena.toString());
 
-        btnRegistrar.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View v) {
-        //UsuarioCon u = new UsuarioCon(this, this);
-        //u.insert(usu);
-        Toast toast = Toast.makeText(this, "Mensaje 1", Toast.LENGTH_SHORT);
-        toast.show();
     }
 
     //region OptionMenu
