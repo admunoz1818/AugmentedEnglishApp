@@ -1,13 +1,18 @@
 package com.example.familyteam.augmentedenglishapp.adapters;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.familyteam.augmentedenglishapp.R;
 import com.example.familyteam.augmentedenglishapp.models.Palabra;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -19,9 +24,20 @@ public class PalabraAdapter extends BaseAdapter {
     Context context;
     List<Palabra> data;
 
+    int widthImg, heightImg;
+
     public PalabraAdapter(Context context, List<Palabra> data) {
         this.context = context;
         this.data = data;
+
+        WindowManager wM = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wM.getDefaultDisplay();
+
+        DisplayMetrics metrics = new DisplayMetrics();
+        display.getMetrics(metrics);
+
+        widthImg = context.getResources().getDimensionPixelSize(R.dimen.template_imagen_width);
+        heightImg = context.getResources().getDimensionPixelSize(R.dimen.template_imagen_height);
     }
 
     @Override
@@ -62,8 +78,8 @@ public class PalabraAdapter extends BaseAdapter {
         txt = (TextView) v.findViewById(R.id.patron);
         txt.setText(u.getPatron());
 
-        txt = (TextView) v.findViewById(R.id.imagen);
-        txt.setText(u.getImagen());
+        ImageView img = (ImageView) v.findViewById(R.id.imagen);
+        Picasso.with(context).load(u.getImagen()).resize(widthImg,heightImg).centerCrop().into(img);
 
         return v;
     }

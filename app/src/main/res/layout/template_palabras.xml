@@ -5,10 +5,16 @@
     android:layout_height="match_parent"
     tools:context="com.example.familyteam.augmentedenglishapp.template_palabras">
 
+    <ImageView
+        android:id="@+id/imagen"
+        android:layout_width="@dimen/template_imagen_width"
+        android:layout_height="@dimen/template_imagen_height"
+        android:background="#ff369fff"/>
     <TextView
         android:id="@+id/nombre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/imagen"/>
 
     <TextView
         android:id="@+id/traduccion"
@@ -22,12 +28,10 @@
 
     <TextView
         android:id="@+id/patron"
+        android:enabled="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/imagen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+
 
 </LinearLayout>
