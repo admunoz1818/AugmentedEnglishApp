@@ -14,7 +14,7 @@
             android:layout_height="200dp"
             android:src="@color/azul_claro"
             android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:contentDescription="Image_Logo" />
 
         <ImageView
@@ -36,35 +36,20 @@
         android:paddingRight="@dimen/activity_vertical_margin"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Nombre"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
-        <EditText
-            android:id="@+id/correo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text"
-            android:hint="Correo"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
-        <EditText
-            android:id="@+id/contrasena"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:hint="Contraseña"
-            android:layout_marginBottom="45dp"/>
-
         <Button
-            android:id="@+id/btnRegistro"
+            android:id="@+id/btnCrea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrarse"
+            android:text="Crea"
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="40dp"
             />
 
+        <Button
+            android:id="@+id/btnDescubre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descubre"
+            />
     </LinearLayout>
-
 </LinearLayout>

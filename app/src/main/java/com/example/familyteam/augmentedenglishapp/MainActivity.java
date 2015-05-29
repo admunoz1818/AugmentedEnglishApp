@@ -97,6 +97,8 @@ public class MainActivity extends ActionBarActivity implements UsuarioCon.Usuari
         txtCorreo.getText().clear();
         txtContrasena.getText().clear();
 
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
     }
     //endregion
 }
