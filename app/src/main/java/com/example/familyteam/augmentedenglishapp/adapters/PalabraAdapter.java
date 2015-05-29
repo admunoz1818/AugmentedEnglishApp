@@ -75,10 +75,7 @@ public class PalabraAdapter extends BaseAdapter {
         txt = (TextView) v.findViewById(R.id.pronunciacion);
         txt.setText(u.getPronunciacion());
 
-        txt = (TextView) v.findViewById(R.id.patron);
-        txt.setText(u.getPatron());
-
-        ImageView img = (ImageView) v.findViewById(R.id.imagen);
+        ImageView img = (ImageView) v.findViewById(R.id.img_principal);
         Picasso.with(context).load(u.getImagen()).resize(widthImg,heightImg).centerCrop().into(img);
 
         return v;

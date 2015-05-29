@@ -1,5 +1,6 @@
 package com.example.familyteam.augmentedenglishapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -7,7 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.familyteam.augmentedenglishapp.adapters.PalabraAdapter;
 import com.example.familyteam.augmentedenglishapp.models.Palabra;
@@ -25,8 +28,7 @@ public class NuevaPalabraActivity extends ActionBarActivity implements PalabraCo
     EditText nombre;
     EditText traduccion;
     EditText pronunciacion;
-    EditText patron;
-    EditText imagen;
+    ImageView imagen;
     Button crearPalabra;
 
     @Override
@@ -36,8 +38,7 @@ public class NuevaPalabraActivity extends ActionBarActivity implements PalabraCo
         nombre = (EditText) findViewById(R.id.txtNombre);
         traduccion = (EditText) findViewById(R.id.txtTraduccion);
         pronunciacion = (EditText) findViewById(R.id.txtPronunciacion);
-        patron = (EditText) findViewById(R.id.txtPatron);
-        imagen = (EditText) findViewById(R.id.txtImagen);
+        imagen = (ImageView) findViewById(R.id.txtImagen);
         crearPalabra = (Button) findViewById(R.id.btnCrearPalabra);
 
         pCon = new PalabraCon(this,this);
@@ -87,9 +88,15 @@ public class NuevaPalabraActivity extends ActionBarActivity implements PalabraCo
         p.setNombre(nombre.getText().toString());
         p.setTraduccion(traduccion.getText().toString());
         p.setPronunciacion(pronunciacion.getText().toString());
-        p.setPatron(patron.getText().toString());
-        p.setImagen(imagen.getText().toString());
+        p.setPatron("Aqui debe ir el patron");
+        p.setImagen("http://img2.wikia.nocookie.net/__cb20140827124248/monsterhunterespanol/es/images/a/aa/Imagen-no-disponible-282x300.png");
 
         pCon.insert(p);
+
+        Toast.makeText(getApplicationContext(), "¡Palabra ingresada!",
+                Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(this, PalabrasActivity.class);
+        startActivity(intent);
     }
 }
