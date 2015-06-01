@@ -14,7 +14,6 @@
             android:layout_height="200dp"
             android:src="@color/azul_claro"
             android:layout_gravity="center"
-            android:layout_marginBottom="30dp"
             android:contentDescription="Image_Logo" />
 
         <ImageView
@@ -41,22 +40,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Nombre"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+            android:hint="Nombre"/>
         <EditText
             android:id="@+id/correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Correo"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+            android:hint="Correo"/>
         <EditText
             android:id="@+id/contrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="Contraseña"
-            android:layout_marginBottom="45dp"/>
+            android:layout_marginBottom="10dp"/>
 
         <Button
             android:id="@+id/btnRegistro"
